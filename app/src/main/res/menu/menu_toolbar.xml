@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/electFragment"
+        android:icon="@drawable/icon_elect"
+        android:title="@string/menuItemTitleElect" />
+    <item
+        android:id="@+id/mainFragment"
+        android:icon="@drawable/icon_stock"
+        android:title="@string/menuItemTitleStock" />
+    <item
+        android:id="@+id/currencyFragment"
+        android:icon="@drawable/icon_currency"
+        android:title="@string/menuItemTitleCurrency" />
+    <item
+        android:id="@+id/cryptoCurrencyFragment"
+        android:icon="@drawable/icon_cryptocurrency"
+        android:title="@string/menuItemTitleCryptocurrency"/>
+
+
+
+</menu>

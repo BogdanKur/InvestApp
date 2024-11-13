@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/secondary"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:layout_width="match_parent"
+        android:layout_height="?android:actionBarSize"
+        android:id="@+id/toolbar"
+        android:background="@color/main"
+        app:titleTextColor="@color/white">
+        <ImageButton
+            android:layout_gravity="start|center"
+            android:visibility="gone"
+            android:id="@+id/imgBtnBackToCurrency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_back"
+            android:background="@android:color/transparent"/>
+        <ImageButton
+            android:layout_gravity="start|center"
+            android:visibility="gone"
+            android:id="@+id/imgBtnBackToCryptoFavorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_back"
+            android:background="@android:color/transparent"/>
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/tvLoad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Загрузка данных.."
+            android:textColor="@color/black"/>
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/tvNameActiv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"/>
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/tvCurrencyPair"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Выберите пару валют"
+            android:textColor="@color/black"/>
+        <ImageButton
+            android:id="@+id/imgBtnSearchCurrencies"
+            android:layout_gravity="end|center"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/ic_menu_search"
+            android:background="@android:color/transparent" />
+        <EditText
+            android:id="@+id/editTextSearch"
+            android:layout_width="150dp"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:hint="Search currency"/>
+        <ImageButton
+            android:layout_marginEnd="10dp"
+            android:id="@+id/imgBtnRefresh"
+            android:layout_gravity="end|center"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_refresh"
+            android:background="@android:color/transparent" />
+    </com.google.android.material.appbar.MaterialToolbar>
+    <Button
+        android:id="@+id/imgBtnShowData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|top"
+        android:visibility="gone"
+        android:text="Посмотреть"
+        android:textAllCaps="false"
+        android:background="@drawable/item_country_asset_background_choose"/>
+    <LinearLayout
+        android:id="@+id/llTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Базовая валюта"
+            android:textStyle="bold"
+            android:gravity="center"/>
+        <TextView
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Конвертируемая валюта"
+            android:textStyle="bold"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/llRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewBaseCurrency"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewConvertCurrency"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+    </LinearLayout>
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:id="@+id/hsvStocksMenu"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <Button
+                android:id="@+id/btn_1m"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:textAllCaps="false"
+                android:background="@drawable/item_country_asset_background"
+                android:text="1m" />
+
+            <Button
+                android:id="@+id/btn_5m"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:textAllCaps="false"
+                android:background="@drawable/item_country_asset_background"
+                android:text="5m" />
+
+            <Button
+                android:id="@+id/btn_15m"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:textAllCaps="false"
+                android:background="@drawable/item_country_asset_background"
+                android:text="15m" />
+
+            <Button
+                android:id="@+id/btn_30m"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:textAllCaps="false"
+                android:background="@drawable/item_country_asset_background"
+                android:text="30m" />
+
+            <Button
+                android:id="@+id/btn_1h"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:textAllCaps="false"
+                android:background="@drawable/item_country_asset_background"
+                android:text="1h" />
+
+            <Button
+                android:id="@+id/btn_90m"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:textAllCaps="false"
+                android:background="@drawable/item_country_asset_background"
+                android:text="90m" />
+
+            <Button
+                android:id="@+id/btn_1d"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:textAllCaps="false"
+                android:background="@drawable/item_country_asset_background"
+                android:text="1d" />
+
+            <Button
+                android:id="@+id/btn_1w"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:textAllCaps="false"
+                android:background="@drawable/item_country_asset_background"
+                android:text="1wk" />
+
+            <Button
+                android:id="@+id/btn_1mo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAllCaps="false"
+                android:background="@drawable/item_country_asset_background"
+                android:text="1mo" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
+    <com.github.mikephil.charting.charts.CandleStickChart
+        android:id="@+id/chart"
+        android:layout_gravity="top"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:visibility="gone"/>
+    <TextView
+        android:id="@+id/currentPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Текущая цена:"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/dailyChange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Дневное изменение:"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/dayLow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Минимум дня:"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/dayHigh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Максимум дня:"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/previousClose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Цена закрытия:"
+        android:visibility="gone" />
+
+    <ImageButton
+        android:layout_marginTop="20dp"
+        android:id="@+id/imgBtnAddFavorite"
+        android:layout_gravity="bottom|center"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/icon_not_elect" />
+    <Button
+        android:visibility="gone"
+        android:id="@+id/btnLoadGraphic"
+        android:background="@drawable/item_country_asset_background"
+        android:text="Загрузить график"
+        android:textAllCaps="false"
+        android:layout_gravity="end|center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
